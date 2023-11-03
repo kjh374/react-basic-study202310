@@ -12,7 +12,7 @@ const Chart = ({ dataPoints }) => {
   //   const totalValue = dataPointsValues.reduce((a, b) => {
   //     console.log(`a: ${a}, b: ${b}`);
   //     return a + b;
-  //   }, 0); // 0: 초기값
+  //   }, 0); // 0: 초기인덱스값(기본값 1)
   const totalValue = dataPointsValues.reduce((a, b) => a + b, 0);
 
   // 그 중에서 제일 지출이 높은 값
