@@ -2,10 +2,13 @@ import React from 'react';
 import Card from '../Card';
 import styles from './ErrorModal.module.css';
 import Button from '../Button/Button';
-const ErrorModal = ({ title, message }) => {
+const ErrorModal = ({ title, message, onConfirm }) => {
   return (
     <>
-      <div className={styles.backdrop} />
+      <div
+        className={styles.backdrop}
+        onClick={onConfirm}
+      />
       <Card className={styles.modal}>
         <header className={styles.header}>
           <h2>{title}</h2>
@@ -14,7 +17,7 @@ const ErrorModal = ({ title, message }) => {
           <p>{message}</p>
         </div>
         <footer className={styles.actions}>
-          <Button>Okay</Button>
+          <Button onClick={onConfirm}>Okay</Button>
         </footer>
       </Card>
     </>
