@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import styles from './AddUsers.module.css';
 import Card from '../UI/Card';
 import Button from '../UI/Button/Button';
+import ErrorModal from '../UI/Modal/ErrorModal';
 
-const AddUsers = () => {
+const AddUsers = ({ onAddUser }) => {
   const [userValue, setUserValue] = useState({
     userName: '',
     age: '',
@@ -31,7 +32,7 @@ const AddUsers = () => {
 
     if (+userValue.age < 1) return;
 
-    console.log(userValue);
+    onAddUser(userValue);
 
     setUserValue({
       userName: '',
@@ -40,25 +41,32 @@ const AddUsers = () => {
   };
 
   return (
-    <Card className={styles.input}>
-      <form onSubmit={userSubmitHandler}>
-        <label htmlFor='username'>이름</label>
-        <input
-          id='username'
-          type='text'
-          onChange={nameChangeHandler}
-          value={userValue.userName}
-        />
-        <label htmlFor='age'>나이</label>
-        <input
-          id='age'
-          type='number'
-          onChange={ageChangeHandler}
-          value={userValue.age}
-        />
-        <Button type='submit'>가입하기</Button>
-      </form>
-    </Card>
+    // React.Fragment
+    <>
+      <ErrorModal
+        title={'아무제목'}
+        message={'아무 메세지 입니다~~~'}
+      />
+      <Card className={styles.input}>
+        <form onSubmit={userSubmitHandler}>
+          <label htmlFor='username'>이름</label>
+          <input
+            id='username'
+            type='text'
+            onChange={nameChangeHandler}
+            value={userValue.userName}
+          />
+          <label htmlFor='age'>나이</label>
+          <input
+            id='age'
+            type='number'
+            onChange={ageChangeHandler}
+            value={userValue.age}
+          />
+          <Button type='submit'>가입하기</Button>
+        </form>
+      </Card>
+    </>
   );
 };
 
