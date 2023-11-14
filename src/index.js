@@ -2,13 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { AuthContextProvider } from './store/auth-context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-// const overlay
-root.render(
-  <AuthContextProvider>
-    <App />
-  </AuthContextProvider>
-);
-// overlay-root.render()
+root.render(<App />);
