@@ -4,9 +4,10 @@ import styles from './CartItem.module.scss';
 import CartContext from '../../../store/cart-context';
 
 const CartItem = ({ cart }) => {
-  const { name, price, amount } = cart;
+  const { id, name, price, amount } = cart;
 
-  const { addItem } = useContext(CartContext);
+  const { addItem, removeItem } = useContext(CartContext);
+  console.log(id);
 
   const {
     'cart-item': cartItem,
@@ -18,8 +19,12 @@ const CartItem = ({ cart }) => {
   const formatPrice = new Intl.NumberFormat('ko-KR').format(price);
 
   // + 버튼 누르면 무적권 amount는 하나다!
-  const CartAddItemHandler = () => {
+  const cartAddItemHandler = () => {
     addItem({ ...cart, amount: 1 });
+  };
+
+  const cartRemoveItemHandler = () => {
+    removeItem(id);
   };
 
   return (
@@ -32,8 +37,8 @@ const CartItem = ({ cart }) => {
         </div>
       </div>
       <div className={actions}>
-        <button>−</button>
-        <button onClick={CartAddItemHandler}>+</button>
+        <button onClick={cartRemoveItemHandler}>−</button>
+        <button onClick={cartAddItemHandler}>+</button>
       </div>
     </li>
   );
