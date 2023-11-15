@@ -12,7 +12,7 @@ const MealItem = ({ id, price, description, name }) => {
     const item = {
       id: id,
       name: name,
-      price: price * amount,
+      price: price,
       amount: +amount,
     };
     addItem(item);

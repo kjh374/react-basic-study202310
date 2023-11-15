@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import Input from '../../../UI/Input/Input';
 import styles from './MealItemForm.module.scss';
-import CartContext from '../../../../store/cart-context';
 
 const MealItemForm = ({ id, onAddToCart }) => {
   // 수량의 상태를 관리하는 변수.
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(1);
 
   // 담기 버튼을 누르면 발동하는 함수.
   const formSubmitHandler = (e) => {
@@ -35,7 +34,7 @@ const MealItemForm = ({ id, onAddToCart }) => {
           defaultValue: '1',
         }}
       />
-      <button onClick={onAddToCart}>담기</button>
+      <button>담기</button>
     </form>
   );
 };
