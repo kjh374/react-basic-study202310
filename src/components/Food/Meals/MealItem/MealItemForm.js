@@ -29,7 +29,7 @@ const MealItemForm = ({ id, onAddToCart }) => {
           id: 'amount_' + id,
           type: 'number',
           min: '1',
-          max: '5',
+          max: '500000000000000000000000',
           step: '1',
           defaultValue: '1',
         }}
